@@ -5,6 +5,15 @@ function compute() {
     var years = parseInt(document.getElementById("years").value);
     var interest = principal * years * rate / 100;
     var year = new Date().getFullYear() + years;
+    
+    var principal = document.getElementById("principal").value;
+    var lessThanZero = parseInt(principal) < 0;
+    if (!lessThanZero) {
+        alert("Enter a positive number");
+        document.getElementById("principal").focus();
+    }
+    
+    
     //Output for intrest text
     document.getElementById("result").innerHTML = "Interest : If you deposit <mark>" + principal + "</mark>,<br/>" +
         "at an interest rate of <mark>" + rate + "</mark>,<br/>" +
@@ -20,11 +29,6 @@ function getSliderValue() {
 
 //If statement for positive numbers only
 function posNumber() {
-    var principal = document.getElementById("principal").value;
-    var lessThanZero = parseInt(principal) < 0;
-    if (!lessThanZero) {
-        alert("Enter a positive number");
-        document.getElementById("principal").focus();
-    }
+    
 
 }
